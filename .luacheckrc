@@ -11,6 +11,11 @@ read_globals = {
     "G_reader_settings",
 }
 
+-- KOReader invoca los manejadores de evento como métodos (dos puntos) y
+-- siempre pasa `self`, aunque el manejador no lo necesite: no es código
+-- muerto, es la convención de despacho del anfitrión.
+ignore = { "212/self" }
+
 files["spec/"] = {
     std = "+busted",
 }

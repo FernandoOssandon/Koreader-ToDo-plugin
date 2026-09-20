@@ -9,19 +9,21 @@ y cómo montar el entorno necesario.
 ## 0. Estado de partida
 
 El código está escrito por completo: las seis piezas del plugin, las pruebas
-unitarias y la documentación. **Nada se ha ejecutado**, porque el entorno de
-desarrollo no tiene Lua, `busted`, `luacheck` ni una copia de KOReader, y se
-decidió no instalar nada.
+unitarias y la documentación. El **entorno A (ligero)** ya se montó — en un
+contenedor Ubuntu 22.04 con Lua 5.1, `busted` y `luacheck`, ya que este
+equipo no tiene WSL con una distro Linux instalada — y pasó en verde. El
+**entorno B (emulador de KOReader)** sigue sin montar.
 
-Por eso en `tasks.md` solo está marcada la tarea 1.3: es la única cuya
-verificación consistía en leer el código fuente de KOReader, cosa que sí se
-hizo. Las otras 35 casillas siguen abiertas aunque su código esté terminado.
+Por eso en `tasks.md` están marcadas las tareas 1.3, 3.1–3.4, 7.1, 7.2, 8.2 y
+8.3: todas las que se cierran con el entorno ligero, más la 1.3 que se cerró
+leyendo el código fuente de KOReader. Las otras 27 casillas siguen abiertas
+porque exigen el emulador o un dispositivo real.
 
 | | |
 | --- | --- |
-| Escrito y sin ejecutar | `todolist.koplugin/` (6 archivos), `spec/todostore_spec.lua` |
-| Verificado | Solo la tarea 1.3, leyendo las fuentes de KOReader en `master` |
-| Pendiente | 35 casillas: 12 con pruebas automáticas, 23 en el emulador o en un dispositivo |
+| Escrito | `todolist.koplugin/` (6 archivos), `spec/todostore_spec.lua` |
+| Verificado | 9 de 36 tareas: 1.3 (lectura de fuentes) + 8 con el entorno ligero |
+| Pendiente | 27 casillas, todas en el emulador o en un dispositivo (entorno B) |
 
 Archivos entregados:
 
@@ -33,8 +35,8 @@ todolist.koplugin/
 ├── todolistview.lua     -- pantalla de lista sobre el widget Menu
 ├── todoeditdialog.lua   -- alta y edición de una tarea
 └── README.md            -- instalación y uso
-spec/todostore_spec.lua  -- 30 pruebas unitarias con busted
-.luacheckrc              -- configuración del análisis estático
+spec/todostore_spec.lua  -- 34 pruebas unitarias con busted, todas en verde
+.luacheckrc              -- configuración del análisis estático, sin avisos
 ```
 
 ---

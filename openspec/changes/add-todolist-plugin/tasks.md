@@ -12,10 +12,10 @@
 
 ## 3. Almacén de datos
 
-- [ ] 3.1 Implementar `todostore.lua` con `open`, `get`, `add`, `update`, `remove`, `toggle`, `counts` y `flush` sobre `LuaSettings` en `DataStorage:getSettingsDir() .. "/todolist.lua"`; verificar con pruebas `busted` que `add` asigna identificadores crecientes y que `remove` sobre un identificador inexistente no lanza error
-- [ ] 3.2 Implementar las invariantes del modelo: rechazo de títulos vacíos o solo con espacios, y `completed` fijado al marcar hecha y limpiado al reabrir; verificar con pruebas `busted` que cubren los escenarios de `task-management`
-- [ ] 3.3 Implementar `SCHEMA_VERSION`, la tabla `migrations` y el modo solo lectura ante una versión superior; verificar con pruebas `busted` que un almacén de versión menor se migra y uno de versión mayor no admite escrituras
-- [ ] 3.4 Implementar la carga defensiva con `pcall`, el almacén ausente como lista vacía y la copia `.bak` previa a cada escritura; verificar con pruebas `busted` que un archivo con contenido ilegible no lanza excepción y que la copia se genera
+- [x] 3.1 Implementar `todostore.lua` con `open`, `get`, `add`, `update`, `remove`, `toggle`, `counts` y `flush` sobre `LuaSettings` en `DataStorage:getSettingsDir() .. "/todolist.lua"`; verificar con pruebas `busted` que `add` asigna identificadores crecientes y que `remove` sobre un identificador inexistente no lanza error
+- [x] 3.2 Implementar las invariantes del modelo: rechazo de títulos vacíos o solo con espacios, y `completed` fijado al marcar hecha y limpiado al reabrir; verificar con pruebas `busted` que cubren los escenarios de `task-management`
+- [x] 3.3 Implementar `SCHEMA_VERSION`, la tabla `migrations` y el modo solo lectura ante una versión superior; verificar con pruebas `busted` que un almacén de versión menor se migra y uno de versión mayor no admite escrituras
+- [x] 3.4 Implementar la carga defensiva con `pcall`, el almacén ausente como lista vacía y la copia `.bak` previa a cada escritura; verificar con pruebas `busted` que un archivo con contenido ilegible no lanza excepción y que la copia se genera
 - [ ] 3.5 Conectar el volcado inmediato tras cada mutación y añadir `onFlushSettings()` en `main.lua`; verificar en el emulador que tras crear una tarea y matar el proceso sin cierre ordenado la tarea sigue presente al reabrir
 
 ## 4. Pantalla de lista
@@ -42,8 +42,8 @@
 
 ## 7. Filtros, orden y presentación
 
-- [ ] 7.1 Implementar en `todostore.lua` el filtrado por todas, pendientes, hechas, vencidas y de este libro; verificar con pruebas `busted` que cada filtro devuelve el subconjunto esperado
-- [ ] 7.2 Implementar la ordenación por creación, fecha límite, prioridad y alfabético, agrupando al final las tareas sin fecha; verificar con pruebas `busted` que cubren cada criterio
+- [x] 7.1 Implementar en `todostore.lua` el filtrado por todas, pendientes, hechas, vencidas y de este libro; verificar con pruebas `busted` que cada filtro devuelve el subconjunto esperado
+- [x] 7.2 Implementar la ordenación por creación, fecha límite, prioridad y alfabético, agrupando al final las tareas sin fecha; verificar con pruebas `busted` que cubren cada criterio
 - [ ] 7.3 Exponer filtros y orden desde el icono izquierdo de la barra de título y reflejar el filtro activo y el recuento en el encabezado; verificar en el emulador que el encabezado muestra el filtro y el número de tareas mostradas sobre el total
 - [ ] 7.4 Persistir el filtro y el orden activos en el campo `view` del almacén; verificar en el emulador que sobreviven a un reinicio de KOReader
 - [ ] 7.5 Ocultar o inhabilitar el filtro «de este libro» cuando no hay documento abierto; verificar en el emulador que abrir la lista desde el gestor de archivos no produce ningún error
@@ -52,8 +52,8 @@
 ## 8. Pulido y publicación
 
 - [ ] 8.1 Envolver todas las cadenas visibles en `_()` y usar `T()` para las que llevan sustitución, sin concatenar fragmentos traducibles; verificar revisando que no queda ninguna cadena literal en la interfaz
-- [ ] 8.2 Ejecutar `luacheck` con la configuración del repositorio de KOReader sobre `todolist.koplugin/`; verificar que termina sin avisos
-- [ ] 8.3 Ejecutar la suite completa de `busted` sobre `todostore.lua`; verificar que todos los escenarios de `task-management` y `task-storage` pasan
+- [x] 8.2 Ejecutar `luacheck` con la configuración del repositorio de KOReader sobre `todolist.koplugin/`; verificar que termina sin avisos
+- [x] 8.3 Ejecutar la suite completa de `busted` sobre `todostore.lua`; verificar que todos los escenarios de `task-management` y `task-storage` pasan
 - [ ] 8.4 Escribir `README.md` con las rutas de instalación por plataforma, el uso y capturas; verificar que alguien ajeno al proyecto puede instalarlo siguiendo solo ese documento
 - [ ] 8.5 Recorrer el guion de regresión completo en un dispositivo e-ink real, con y sin libro abierto; verificar que no aparecen errores en `crash.log` tras una sesión de uso normal
 - [ ] 8.6 Comprobar la desactivación y reactivación del plugin desde Ajustes → Plugins; verificar que desaparecen menú, gestos y botón de selección, y que al reactivarlo las tareas guardadas siguen estando
